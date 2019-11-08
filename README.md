@@ -1,6 +1,8 @@
 
 # simple-duration
 
+[![](https://github.com/nicolas-van/simple-duration/workflows/Node%20CI/badge.svg)](https://github.com/nicolas-van/simple-duration/actions) [![npm version](https://img.shields.io/npm/v/simple-duration.svg)](https://www.npmjs.com/package/simple-duration)
+
 A JavaScript library to convert seconds to strings and back using a human readable format.
 
 simple-duration is an implementation of the [Simple Duration Format](https://github.com/nicolas-van/simple-duration-format-specification#readme) 1.0.
