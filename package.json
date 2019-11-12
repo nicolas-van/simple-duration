@@ -2,13 +2,23 @@
   "name": "simple-duration",
   "version": "0.0.0",
   "description": "A tool to convert seconds to strings and back using a human readable format",
-  "main": "index.js",
+  "main": "src/simple-duration.js",
   "scripts": {
-    "test": "npm run standard && npm run jest",
+    "test": "npm run lint && npm run jest",
     "jest": "jest",
-    "lint": "standard"
+    "lint": "eslint src \"*.js\" \".*.js\""
   },
-  "keywords": ["date", "duration", "time" ,"human", "ms", "millisecond", "period", "range", "second"],
+  "keywords": [
+    "date",
+    "duration",
+    "time",
+    "human",
+    "ms",
+    "millisecond",
+    "period",
+    "range",
+    "second"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicolas-van/simple-duration.git"
@@ -20,7 +30,17 @@
   },
   "homepage": "https://github.com/nicolas-van/simple-duration#readme",
   "devDependencies": {
-    "jest": "^24.9.0",
-    "standard": "^14.3.1"
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.0.2",
+    "eslint-plugin-jsdoc": "^17.1.0",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
