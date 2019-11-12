@@ -25,4 +25,8 @@ test('stringify', () => {
   expect(sd.stringify(-(1 * 60 + 5))).toBe('-1m 5s')
 
   expect(sd.stringify(1 * 60 * 60 * 24 * 365.25 - 1)).toBe('365d 5h 59m 59s')
+
+  expect(() => sd.stringify(null)).toThrow()
+  expect(() => sd.stringify(1, null)).toThrow()
+  expect(() => sd.stringify(1, 'test')).toThrow()
 })
