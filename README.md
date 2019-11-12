@@ -51,3 +51,11 @@ You can specify any number of units in any order. As example `24s 3h` is perfect
 negative amounts of time like `-3m`.
 
 When formatting the `stringify` function will always use a normalizing process.
+
+## License
+
+[See the license file](./LICENSE.md).
+
+## Contribution
+
+[See the contribution file](./CONTRIBUTING.md).
