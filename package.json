@@ -1,6 +1,6 @@
 {
   "name": "simple-duration",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A tool to convert seconds to strings and back using a human readable format",
   "main": "src/simple-duration.js",
   "scripts": {
