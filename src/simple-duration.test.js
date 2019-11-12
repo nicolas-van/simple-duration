@@ -30,3 +30,55 @@ test('stringify', () => {
   expect(() => sd.stringify(1, null)).toThrow()
   expect(() => sd.stringify(1, 'test')).toThrow()
 })
+
+test('rounding', () => {
+  expect(sd.stringify(0)).toBe('0ms')
+  expect(sd.stringify(1 / 1000 / 1000)).toBe('0ms')
+  expect(sd.stringify(1, 'm')).toBe('0m')
+  expect(sd.stringify(35, 'm')).toBe('1m')
+})
+
+test('parse', () => {
+  expect(sd.parse('1s')).toBe(1)
+  expect(sd.parse('1m')).toBe(1 * 60)
+  expect(sd.parse('1h')).toBe(1 * 60 * 60)
+  expect(sd.parse('1d')).toBe(1 * 60 * 60 * 24)
+  expect(sd.parse('1y')).toBe(1 * 60 * 60 * 24 * 365.25)
+  expect(sd.parse('1ms')).toBe(1 / 1000)
+  expect(sd.parse('1µs')).toBe(1 / 1000 / 1000)
+  expect(sd.parse('1ns')).toBe(1 / 1000 / 1000 / 1000)
+
+  expect(sd.parse('-1s')).toBe(-1)
+  expect(sd.parse('-1m')).toBe(-1 * 60)
+  expect(sd.parse('-1h')).toBe(-1 * 60 * 60)
+  expect(sd.parse('-1d')).toBe(-1 * 60 * 60 * 24)
+  expect(sd.parse('-1y')).toBe(-1 * 60 * 60 * 24 * 365.25)
+  expect(sd.parse('-1ms')).toBe(-1 / 1000)
+  expect(sd.parse('-1µs')).toBe(-1 / 1000 / 1000)
+  expect(sd.parse('-1ns')).toBe(-1 / 1000 / 1000 / 1000)
+
+  expect(sd.parse('5m 2s')).toBe(5 * 60 + 2)
+  expect(sd.parse('5m2s')).toBe(5 * 60 + 2)
+  expect(sd.parse('   5  m \t  2 s  ')).toBe(5 * 60 + 2)
+  expect(sd.parse('  - 5  m 2s ')).toBe(-(5 * 60 + 2))
+
+  expect(sd.parse('3m 2h')).toBe(2 * 60 * 60 + 3 * 60)
+
+  expect(sd.parse('-5s 10s')).toBe(-15)
+
+  expect(() => sd.parse('5 m s')).toThrow()
+  expect(() => sd.parse(5)).toThrow()
+  expect(() => sd.parse(null)).toThrow()
+})
+
+test('two ways', () => {
+  const performTest = (str) => {
+    const val = sd.parse(str)
+    const normalized = sd.stringify(val)
+    expect(sd.parse(normalized)).toBe(val)
+  }
+  performTest('1s')
+  performTest('5m 12s 24ms')
+  performTest('1000y 24d 12h 3m 45s 324ms')
+  performTest('-1000y 24d 12h 3m 45s 324ms')
+})

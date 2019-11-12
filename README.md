@@ -27,7 +27,7 @@ npm install simple-duration
 
 ### `parse(str)`
 
-Parse a string using the Simple Duration Format and returns the number of seconds corresponding to it.
+Parses a string using the Simple Duration Format and returns the number of seconds corresponding to it.
 
 ### `stringify(seconds, rounding='ms')`
 
