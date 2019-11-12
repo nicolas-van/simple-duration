@@ -1,6 +1,6 @@
 {
   "name": "simple-duration",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tool to convert seconds to strings and back using a human readable format",
   "main": "src/simple-duration.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "url": "git+https://github.com/nicolas-van/simple-duration.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nicolas-van/simple-duration/issues"
   },
