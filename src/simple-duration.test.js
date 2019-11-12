@@ -69,6 +69,10 @@ test('parse', () => {
   expect(() => sd.parse('5 m s')).toThrow()
   expect(() => sd.parse(5)).toThrow()
   expect(() => sd.parse(null)).toThrow()
+
+  expect(sd.parse('0.5m')).toBe(30)
+  expect(sd.parse('1.5s')).toBe(1 + 500 / 1000)
+  expect(sd.parse('0.5y')).toBe(1 * 60 * 60 * 24 * 365.25 / 2)
 })
 
 test('two ways', () => {
