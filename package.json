@@ -22,7 +22,7 @@
   "scripts": {
     "build": "rollup -c rollup.config.js",
     "coverage": "npm run jest -- --coverage",
-    "test": "npm run lint && npm run jest",
+    "test": "npm run lint && npm run coverage",
     "jest": "NODE_OPTIONS=--experimental-vm-modules jest",
     "lint": "eslint \"src/*.mjs\" \"*.cjs\" \".*.cjs\""
   },
