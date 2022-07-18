@@ -1,6 +1,6 @@
 {
   "name": "simple-duration",
-  "version": "1.1.0-rc1",
+  "version": "1.1.0",
   "description": "A tool to convert seconds to strings and back using a human readable format",
   "type": "module",
   "main": "dist/simple-duration.cjs",
