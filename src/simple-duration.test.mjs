@@ -1,4 +1,5 @@
-const sd = require('./simple-duration')
+
+import * as sd from './simple-duration.mjs'
 
 test('stringify', () => {
   expect(sd.stringify(1)).toBe('1s')

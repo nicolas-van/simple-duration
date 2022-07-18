@@ -1,5 +1,5 @@
 
-const _ = require('lodash')
+import _ from 'lodash'
 
 const s = 1
 const m = s * 60
@@ -25,7 +25,7 @@ const timeUnits = _.fromPairs(_.map(timeUnitsList, (el) => {
   return [el.unit, el]
 }))
 
-module.exports.timeUnits = timeUnits
+export { timeUnits }
 
 /**
  * Formats a number of seconds.
@@ -59,7 +59,7 @@ function stringify (seconds, rounding = 'ms') {
   return str.length > 0 ? str.trim() : `0${rounding}`
 }
 
-module.exports.stringify = stringify
+export { stringify }
 
 const wsRegex = '[ \\t]'
 const positiveNumberRegex = '(?:0|[1-9]\\d*)(?:\\.\\d+)?'
@@ -98,4 +98,4 @@ function parse (str) {
   return (negative ? -1 : 1) * counter
 }
 
-module.exports.parse = parse
+export { parse }

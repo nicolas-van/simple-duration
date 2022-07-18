@@ -2,11 +2,29 @@
   "name": "simple-duration",
   "version": "1.0.1",
   "description": "A tool to convert seconds to strings and back using a human readable format",
-  "main": "src/simple-duration.js",
+  "type": "module",
+  "main": "dist/simple-duration.cjs",
+  "browser": "src/simple-duration.mjs",
+  "module": "src/simple-duration.mjs",
+  "exports": {
+    "import": "./src/simple-duration.mjs",
+    "require": "./dist/simple-duration.cjs"
+  },
+  "jsdelivr": "dist/simple-duration.umd.js",
+  "unpkg": "dist/simple-duration.umd.js",
+  "files": [
+    "src/*",
+    "dist/*",
+    "README.md",
+    "LICENSE.md",
+    "*.d.ts"
+  ],
   "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "coverage": "npm run jest -- --coverage",
     "test": "npm run lint && npm run jest",
-    "jest": "jest --coverage",
-    "lint": "eslint src \"*.js\" \".*.js\""
+    "jest": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "lint": "eslint \"src/*.mjs\" \"*.cjs\" \".*.cjs\""
   },
   "keywords": [
     "date",
@@ -30,15 +48,18 @@
   },
   "homepage": "https://github.com/nicolas-van/simple-duration#readme",
   "devDependencies": {
-    "eslint": "^6.6.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^23.0.2",
-    "eslint-plugin-jsdoc": "^17.1.0",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "jest": "^24.9.0"
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.0.6",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^25.2.2",
+    "eslint-plugin-jsdoc": "^37.0.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "eslint-plugin-standard": "^4.1.0",
+    "jest": "^27.3.1",
+    "rollup": "^2.59.0"
   },
   "dependencies": {
     "lodash": "^4.17.15"
