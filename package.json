@@ -1,6 +1,6 @@
 {
   "name": "simple-duration",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A tool to convert seconds to strings and back using a human readable format",
   "type": "module",
   "main": "dist/simple-duration.cjs",
@@ -47,6 +47,10 @@
     "url": "https://github.com/nicolas-van/simple-duration/issues"
   },
   "homepage": "https://github.com/nicolas-van/simple-duration#readme",
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/nicolas-van"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
